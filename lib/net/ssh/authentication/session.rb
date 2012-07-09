@@ -6,6 +6,7 @@ require 'net/ssh/authentication/methods/publickey'
 require 'net/ssh/authentication/methods/hostbased'
 require 'net/ssh/authentication/methods/password'
 require 'net/ssh/authentication/methods/keyboard_interactive'
+require 'net/ssh/authentication/methods/securid'
 
 module Net; module SSH; module Authentication
 
@@ -41,7 +42,7 @@ module Net; module SSH; module Authentication
       self.logger = transport.logger
       @transport = transport
 
-      @auth_methods = options[:auth_methods] || %w(publickey hostbased password keyboard-interactive)
+      @auth_methods = options[:auth_methods] || %w(publickey hostbased password keyboard-interactive securid)
       @options = options
 
       @allowed_auth_methods = @auth_methods
